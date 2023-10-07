@@ -12,6 +12,18 @@
           "Microsoft.UI.Xaml": "2.7.0"
         }
       },
+      "CommunityToolkit.Uwp.Controls.TokenizingTextBox": {
+        "type": "Direct",
+        "requested": "[8.0.230907, )",
+        "resolved": "8.0.230907",
+        "contentHash": "lrSY15R2rBDcZDH+xThy33qgmeN6+lABZUkGKtX8A7YWA5VKGLodIxLkkw+QwaWkM0wPUEmeb51skuEEObQNIg==",
+        "dependencies": {
+          "CommunityToolkit.Uwp.Controls.Primitives": "8.0.230907",
+          "CommunityToolkit.Uwp.Extensions": "8.0.230907",
+          "CommunityToolkit.Uwp.Helpers": "8.0.230907",
+          "Microsoft.UI.Xaml": "2.7.0"
+        }
+      },
       "Microsoft.AppCenter.Analytics": {
         "type": "Direct",
         "requested": "[5.0.2, )",
@@ -124,6 +136,11 @@
         "resolved": "3.3.2",
         "contentHash": "VOdfDFXIuaF1lPzB3K5BkQ7QKVSOQ8qIU79r/N3amWhDsVnLFROJUSgoZ9eHj5G80gjEshCV3zr/Mv0jgjJ/KA=="
       },
+      "CommunityToolkit.Common": {
+        "type": "Transitive",
+        "resolved": "8.2.1",
+        "contentHash": "LWuhy8cQKJ/MYcy3XafJ916U3gPH/YDvYoNGWyQWN11aiEKCZszzPOTJAOvBjP9yG8vHmIcCyPUt4L82OK47Iw=="
+      },
       "CommunityToolkit.Diagnostics": {
         "type": "Transitive",
         "resolved": "8.2.1",
@@ -141,6 +158,33 @@
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Memory": "4.5.5",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
+      },
+      "CommunityToolkit.Uwp.Controls.Primitives": {
+        "type": "Transitive",
+        "resolved": "8.0.230907",
+        "contentHash": "MfL/DgFewZA4qPHPfL00pRjepX7UAhGXvnupOMorREvK4r78s0sm1q2kPP0Mu8k5HUvahdX0gGHx+HBz7Ip8vw==",
+        "dependencies": {
+          "CommunityToolkit.Uwp.Extensions": "8.0.230907",
+          "Microsoft.UI.Xaml": "2.7.0"
+        }
+      },
+      "CommunityToolkit.Uwp.Extensions": {
+        "type": "Transitive",
+        "resolved": "8.0.230907",
+        "contentHash": "QCvkPS4TCoxeihp7nfmhQr6LgH8VF0ERN8DNwICgd/BlAAUYI/JBMA5fOfuf8veO53MWpW1qGtz5xXtodD/zaw==",
+        "dependencies": {
+          "CommunityToolkit.Common": "8.2.1",
+          "Microsoft.UI.Xaml": "2.7.0"
+        }
+      },
+      "CommunityToolkit.Uwp.Helpers": {
+        "type": "Transitive",
+        "resolved": "8.0.230907",
+        "contentHash": "QHYjl4WUtq9eSiCVzXf37Huj//d3/iFpAhz/30S/KoV37VCKf8SptolY7JXppnH30orfh9UvtYutwa5wX978zw==",
+        "dependencies": {
+          "CommunityToolkit.Uwp.Extensions": "8.0.230907",
+          "Microsoft.UI.Xaml": "2.7.0"
         }
       },
       "LibVLCSharp": {

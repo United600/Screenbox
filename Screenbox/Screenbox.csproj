@@ -977,6 +977,9 @@
     <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
       <Version>0.0.18</Version>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Uwp.Controls.TokenizingTextBox">
+      <Version>8.0.230907</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.2</Version>
     </PackageReference>

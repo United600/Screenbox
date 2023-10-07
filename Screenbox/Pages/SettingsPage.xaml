@@ -13,6 +13,7 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:storage="using:Windows.Storage"
     xmlns:strings="using:Screenbox.Strings"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     xmlns:triggers="using:Microsoft.Toolkit.Uwp.UI.Triggers"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     mc:Ignorable="d">
@@ -240,27 +241,35 @@
                     Text="{strings:Resources Key=SettingsCategoryAdvanced}" />
                 <labs:SettingsExpander
                     Description="{strings:Resources Key=SettingsAdvancedModeDescription}"
-                    Header="{strings:Resources Key=SettingsAdvancedModeHeader}"
+                    Header="VLC command-line"
                     HeaderIcon="{ui:FontIcon Glyph=&#xe756;}"
                     IsExpanded="{x:Bind AdvancedModeToggleSwitch.IsOn, Mode=OneWay}">
                     <ToggleSwitch x:Name="AdvancedModeToggleSwitch" IsOn="{x:Bind ViewModel.AdvancedMode, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard Header="{strings:Resources Key=SettingsGlobalArgumentsHeader}" IsEnabled="{x:Bind AdvancedModeToggleSwitch.IsOn, Mode=OneWay}">
-                            <labs:SettingsCard.Description>
-                                <TextBlock>
-                                    <Run Text="{strings:Resources Key=SettingsGlobalArgumentsDescription}" /><LineBreak /><Run Text="{x:Bind VlcCommandLineHelpTextParts[0]}" />
-                                    <Hyperlink NavigateUri="https://wiki.videolan.org/VLC_command-line_help/">
-                                        <Run Text="{strings:Resources Key=VlcCommandLineHelpLink}" />
-                                    </Hyperlink>
-                                    <Run Text="{x:Bind VlcCommandLineHelpTextParts[1]}" />
-                                </TextBlock>
-                            </labs:SettingsCard.Description>
-                            <TextBox
-                                Width="180"
-                                AcceptsReturn="False"
-                                MaxLength="1024"
+                        <labs:SettingsCard
+                            HorizontalContentAlignment="Left"
+                            ContentAlignment="Vertical"
+                            Description="{strings:Resources Key=SettingsGlobalArgumentsDescription}"
+                            Header="{strings:Resources Key=SettingsGlobalArgumentsHeader}"
+                            IsEnabled="{x:Bind AdvancedModeToggleSwitch.IsOn, Mode=OneWay}">
+                            <toolkit:TokenizingTextBox
+                                x:Name="GlobalArgsTokenBox"
+                                Margin="0,0,0,8"
                                 PlaceholderText="--option=value"
-                                Text="{x:Bind ViewModel.GlobalArguments, Mode=TwoWay}" />
+                                Text="{x:Bind ViewModel.GlobalArguments, Mode=TwoWay}"
+                                TokenDelimiter=" " />
+                        </labs:SettingsCard>
+                        <labs:SettingsCard
+                            Background="{ThemeResource ControlFillColorTertiaryBrush}"
+                            ContentAlignment="Left"
+                            IsEnabled="{x:Bind AdvancedModeToggleSwitch.IsOn, Mode=OneWay}">
+                            <StackPanel Margin="-40,0,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0,8,8,8"
+                                    FontWeight="SemiBold"
+                                    Text="Related links" />
+                                <HyperlinkButton Content="{strings:Resources Key=VlcCommandLineHelpLink}" NavigateUri="https://wiki.videolan.org/VLC_command-line_help/" />
+                            </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
