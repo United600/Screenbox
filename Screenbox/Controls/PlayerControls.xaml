@@ -138,22 +138,104 @@
                 </StackPanel>
             </Flyout>
 
+            <!--  Audio Options Flyout  -->
+            <Flyout x:Key="AudioOptionsFlyout" ShouldConstrainToRootBounds="True">
+                <StackPanel
+                    Width="220"
+                    Orientation="Vertical"
+                    Spacing="8">
+                    <Grid Height="40" Margin="-14,-12,-16,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            IsEnabled="False"
+                            Style="{StaticResource NavigationBackButtonNormalStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="4,0,8,0"
+                            VerticalAlignment="Center"
+                            Text="Audio options" />
+                        <StackPanel
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="4">
+                            <Border
+                                Height="16"
+                                MinWidth="16"
+                                VerticalAlignment="Center"
+                                BorderBrush="{ThemeResource ControlStrokeColorSecondary}"
+                                BorderThickness="1"
+                                CornerRadius="1,1,1,1">
+                                <TextBlock
+                                    Padding="2,2,4,4"
+                                    FontSize="10"
+                                    FontWeight="SemiBold"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    Text="CTRL"
+                                    TextLineBounds="Tight" />
+                            </Border>
+                            <Border
+                                Height="16"
+                                MinWidth="16"
+                                VerticalAlignment="Center"
+                                BorderBrush="{ThemeResource ControlStrokeColorSecondary}"
+                                BorderThickness="1"
+                                CornerRadius="1,1,1,1">
+                                <TextBlock
+                                    Padding="2,2,4,4"
+                                    FontSize="10"
+                                    FontWeight="SemiBold"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    Text="A"
+                                    TextLineBounds="Tight" />
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Margin="-2,0">
+                        <StackPanel
+                            Margin="0,0,0,4"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="{strings:Resources Key=TimingOffset}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}"><Run Text="{Binding ElementName=AudioTimingOffsetSlider, Path=Value, FallbackValue=0}" /> <Run Text="ms" /></TextBlock>
+                        </StackPanel>
+                        <Slider
+                            x:Name="AudioTimingOffsetSlider"
+                            AutomationProperties.Name="{strings:Resources Key=TimingOffset}"
+                            IsThumbToolTipEnabled="False"
+                            LargeChange="500"
+                            Maximum="3000"
+                            Minimum="-3000"
+                            SmallChange="1"
+                            StepFrequency="100"
+                            ValueChanged="AudioTimingOffsetSlider_OnValueChanged"
+                            Value="0" />
+                    </StackPanel>
+                </StackPanel>
+            </Flyout>
+
+            <!--  Subtitle Options Flyout  -->
             <Flyout x:Key="SubtitleOptionsFlyout">
                 <StackPanel
                     Width="180"
                     Orientation="Vertical"
                     Spacing="8">
                     <Slider
-                        x:Name="TimingOffsetSlider"
+                        x:Name="SubtitleTimingOffsetSlider"
                         Header="{strings:Resources Key=TimingOffset}"
                         IsThumbToolTipEnabled="False"
                         Maximum="3000"
                         Minimum="-3000"
                         SmallChange="50"
                         StepFrequency="100"
-                        ValueChanged="TimingOffsetSlider_OnValueChanged"
+                        ValueChanged="SubtitleTimingOffsetSlider_OnValueChanged"
                         Value="0" />
-                    <TextBlock HorizontalAlignment="Center"><Run Text="{Binding ElementName=TimingOffsetSlider, Path=Value, FallbackValue=0}" /> <Run Text="ms" /></TextBlock>
+                    <TextBlock HorizontalAlignment="Center"><Run Text="{Binding ElementName=SubtitleTimingOffsetSlider, Path=Value, FallbackValue=0}" /> <Run Text="ms" /></TextBlock>
                 </StackPanel>
             </Flyout>
 

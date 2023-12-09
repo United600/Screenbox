@@ -19,14 +19,22 @@
             SelectionMode="Single"
             SingleSelectionFollowsFocus="False">
             <ListView.Header>
-                <Border Height="40">
+                <Grid Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
                     <TextBlock
                         Margin="16,0,0,0"
                         VerticalAlignment="Center"
                         Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
                         Style="{StaticResource CaptionTextBlockStyle}"
                         Text="{strings:Resources Key=Audio}" />
-                </Border>
+                    <HyperlinkButton
+                        Grid.Column="1"
+                        Command="{x:Bind ShowAudioOptionsCommand}"
+                        Content="{strings:Resources Key=Options}" />
+                </Grid>
             </ListView.Header>
         </ListView>
         <MenuFlyoutSeparator Margin="-4,4,-4,2" IsTabStop="False" />
