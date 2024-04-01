@@ -105,11 +105,11 @@ namespace Screenbox.Core.ViewModels
 
         private string GetVolumeGlyph()
         {
-            if (IsMute) return "\ue74f";
-            if (Volume < 25) return "\ue992";
-            if (Volume < 50) return "\ue993";
-            if (Volume < 75) return "\ue994";
-            return "\ue995";
+            if (IsMute) return "\uE74F";
+            if (Volume < 5) return "\uE992";
+            if (Volume < 33) return "\uE993";
+            if (Volume < 66) return "\uE994";
+            return "\uE995";
         }
     }
 }
