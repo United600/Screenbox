@@ -103,13 +103,20 @@ namespace Screenbox.Core.ViewModels
             }
         }
 
+        /// <summary>
+        /// Get the volume icon based on its value.
+        /// </summary>
+        /// <returns>A <see langword="string"/> with the Mute glyph if <see cref="IsMute"/> is true,
+        /// Volume 0 glyph if the volume is lower than 3, Volume 1 glyph if the volume is lower than 33,
+        /// Volume 2 glyph if the volume is lower than 66, Volume 3 glyph if the volume is greater than 66.
+        /// </returns>
         private string GetVolumeGlyph()
         {
-            if (IsMute) return "\ue74f";
-            if (Volume < 25) return "\ue992";
-            if (Volume < 50) return "\ue993";
-            if (Volume < 75) return "\ue994";
-            return "\ue995";
+            if (IsMute) return "\uE74F";
+            if (Volume < 3) return "\uE992";
+            if (Volume < 33) return "\uE993";
+            if (Volume < 66) return "\uE994";
+            return "\uE995";
         }
     }
 }
